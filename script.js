@@ -12,23 +12,30 @@ updateTime();
 
 // change colorfor text area depending in the time
 
-$(".description").each(function() {
-    var currentTime = parseInt(moment().hour());
-    var timeBlockElements = parseInt($(this).attr("id").replace("div", ""))
-    if (currentTime > timeBlockElements) {
-        $(this).removeClass("present");
-        $(this).addClass("past");
-    } else if (currentTime === timeBlockElements) {
-        $(this).removeClass("future");
-        $(this).addClass("present");
-    } else if (currentTime < timeBlockElements) {
-        $(this).addClass("future");
-    }
-})
+var checkTime = function () {
+
+    $(".description").each(function() {
+        var currentTime = parseInt(moment().hour());
+        var timeBlockElements = parseInt($(this).attr("id").replace("div", ""))
+        if (currentTime > timeBlockElements) {
+            $(this).removeClass("present");
+            $(this).addClass("past");
+        } else if (currentTime === timeBlockElements) {
+            $(this).removeClass("future");
+            $(this).addClass("present");
+        } else if (currentTime < timeBlockElements) {
+            $(this).addClass("future");
+        }
+    })
+}
 
 checkTime();
 
-// use local storage for saving tasks
+
+setInterval(function() {
+    checkTime();
+}, 60000);
+
 var displayTasks = function() {
     currentTasks = JSON.parse(localStorage.getItem("tasks"));
     if (!currentTasks) {
@@ -49,6 +56,8 @@ var displayTasks = function() {
         })
     }
 }
+
+//when the save button is clicked, text is saved in local storage/
 let saveTasks = function() {
     localStorage.setItem("tasks", JSON.stringify(currentTasks));
 };
