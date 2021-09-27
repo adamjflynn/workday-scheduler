@@ -57,7 +57,7 @@ var displayTasks = function() {
     }
 }
 
-//when the save button is clicked, text is saved in local storage/
+//when the save button is clicked, text is saved in local storage
 let saveTasks = function() {
     localStorage.setItem("tasks", JSON.stringify(currentTasks));
 };
