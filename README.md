@@ -7,5 +7,4 @@ The purpose of this project was to create a simple calendar application that all
 
 Link to the deployed application [Workday-Scheduler](https://adamjflynn.github.io/workday-scheduler/) site.
 
-![image](![workday-scheduler](https://user-images.githubusercontent.com/87862136/134847468-782bad91-aba6-4da2-853e-4e68d307758f.JPG)
-)
+![image](https://user-images.githubusercontent.com/87862136/134847468-782bad91-aba6-4da2-853e-4e68d307758f.JPG)
