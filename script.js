@@ -27,3 +27,25 @@ $(".description").each(function() {
 })
 
 checkTime();
+
+// use local storage for saving tasks
+var displayTasks = function() {
+    currentTasks = JSON.parse(localStorage.getItem("tasks"));
+    if (!currentTasks) {
+        currentTasks = {
+            9:"",
+            10:"",
+            11:"",
+            12:"",
+            13:"",
+            14:"",
+            15:"",
+            16:"",
+            17:"",
+        };
+    } else {
+        $.each(currentTasks, function(id, text){
+            $("#div" + id).text(text);
+        })
+    }
+}
