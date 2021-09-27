@@ -49,3 +49,27 @@ var displayTasks = function() {
         })
     }
 }
+let saveTasks = function() {
+    localStorage.setItem("tasks", JSON.stringify(currentTasks));
+};
+
+var tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+$(".time-block").on('click', ".saveBtn", function() {
+    let id = $(this).attr("id").replace("btn", "")
+    let text = $("#div" + id)
+    let tasktext = text
+        .val()
+        .trim()
+    let divId = $("<div>")
+        .attr("id", "div" + id)
+        .addClass(text.attr("class"))
+        .text(tasktext)
+    text.replaceWith(divId)
+    currentTasks[id] = tasktext
+
+saveTasks();
+    
+});
+
+displayTasks();
